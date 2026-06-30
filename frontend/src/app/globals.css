@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    background-color: #080808;
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-background px-4 py-2 rounded-md font-medium transition-colors hover:bg-accent-hover active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply bg-surface text-text-primary px-4 py-2 rounded-md font-medium border border-border transition-colors hover:bg-surfaceHover active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .card {
+    @apply bg-surface border border-border rounded-lg p-6 shadow-sm;
+  }
+
+  .input-field {
+    @apply bg-surface border border-border rounded-md px-3 py-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all placeholder:text-text-muted;
+  }
+
+  .badge-cyan {
+    @apply bg-accent/10 text-accent border border-accent/20 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .skeleton {
+    @apply bg-surfaceHover animate-pulse rounded-md;
+  }
+}
+
+@layer utilities {
+  .anim-fade-up {
+    animation: fadeSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .anim-fade-left {
+    animation: fadeSlideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes dotPulse {
+  0%, 100% { background-color: #1a1a1a; }
+  50%      { background-color: #00B4D8; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { 
+  width: 6px; 
+  height: 6px; 
+}
+::-webkit-scrollbar-track { 
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2a;
+}
